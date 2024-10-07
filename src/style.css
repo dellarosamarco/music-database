@@ -1,0 +1,21 @@
+
+/* #region COLORS */
+:root {
+    --primary-color: rgba(29,185,84,255);
+    --secondary-color: rgba(33,33,33,255);
+    --tertiary-color: rgba(18,18,18,255);
+    --quaternary-color: rgba(83,83,83,255);
+    --quinary-color: rgba(179,179,179,255);
+}
+/* #endregion */
+
+
+/* #region DEFAULT */ 
+html, body {
+    background-color: var(--secondary-color);
+    height: 100%;
+    margin: 0;
+}
+
+p { margin: 0; }
+/* #endregion */
