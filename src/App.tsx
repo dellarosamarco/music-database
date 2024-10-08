@@ -1,6 +1,6 @@
 import Homepage from "./pages/Homepage/Homepage";
 import { useEffect } from "react";
-import { requestAccessToken } from "./api/services/request_access_token";
+import { requestAccessToken } from "./api/request_access_token";
 import { getNewAlbumReleases } from "./api/services/album/new_releases";
 
 const App = () => {

@@ -1,4 +1,4 @@
-import apiClient from "../apiClient";
+import axios from 'axios';
 
 type RequestAccessTokenResponse = {
     access_token: string;
@@ -8,7 +8,7 @@ type RequestAccessTokenResponse = {
 
 export const requestAccessToken = async (): Promise<RequestAccessTokenResponse> => {
     try {
-        const response = await apiClient.post<RequestAccessTokenResponse>(
+        const response = await axios.post<RequestAccessTokenResponse>(
             'https://accounts.spotify.com/api/token',
             {
                 grant_type: 'client_credentials',

@@ -1,6 +1,14 @@
+import { useSelector } from "react-redux";
+import { getAlbums } from "../../store/slices/albumSlice";
+import AlbumCard from "../../components/albumCard";
+
 const Homepage = () => {
+    const albums = useSelector(getAlbums);
+
     return (
-        <p>x</p>
+        albums.map((album) => (
+            <AlbumCard album={album} ></AlbumCard>
+        ))
     );
 }
 
