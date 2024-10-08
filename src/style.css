@@ -1,6 +1,6 @@
 
 :root {
-    /* #region COLORS */
+    /* #region PALETTE */
     --primary-color: rgba(29,185,84,255);
     --secondary-color: rgba(33,33,33,255);
     --tertiary-color: rgba(18,18,18,255);
@@ -8,11 +8,30 @@
     --quinary-color: rgba(179,179,179,255);
     /* #endregion */
 
+
     /* #region SPACING */
+    --spacing-0: 0.125rem;
     --spacing-1: 0.5rem;
     --spacing-2: 0.75rem;
     --spacing-3: 1rem;
     /* #endregion */
+
+
+    /* #region FONTS WEIGHT */
+    --fw-bold: 500;
+    /* #endregion */
+
+
+    /* #region FONTS SIZE */
+    --fs-normal: 0.9rem;
+    /* #endregion */
+
+
+    /* #region FONTS COLOR */
+    --primary-font-color: rgb(255, 255, 255);
+    --ghost-font-color: rgba(255, 255, 255, 0.5);
+    /* #endregion */
+    
 
     /* #region CONTAINERS */
     --border-radius-1: 0.25rem;
@@ -27,5 +46,8 @@ html, body {
     margin: 0;
 }
 
-p { margin: 0; }
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
 /* #endregion */

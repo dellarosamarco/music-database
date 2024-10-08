@@ -11,9 +11,22 @@ const AlbumCard = ({
 }: AlbumProps) => {
     return (
         <div className="album-card">
-            <img src={album.images[0].url} alt={album.name} />
-            <h1>{album.name}</h1>
-            <TextComponent>{album.release_date}</TextComponent>
+            <img className="album-card__image" src={album.images[0].url} alt={album.name} />
+            <div className="album-card__title">
+                <TextComponent 
+                    fontWeight="bold"
+                    overflow="ellipsis"
+                >
+                    {album.name}
+                </TextComponent>
+            </div>
+            <TextComponent 
+                fontWeight="bold"
+                overflow="ellipsis"
+                color="ghost"
+            >
+                {album.artists.map(artist => artist.name).join(', ')}
+            </TextComponent>
         </div>
     );
 }

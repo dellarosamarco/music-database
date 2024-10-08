@@ -1,0 +1,18 @@
+.text-component {
+    font-size: var(--fs-normal);
+    color: var(--primary-font-color);
+}
+
+.text-component--bold {
+    font-weight: var(--fw-bold);
+}
+
+.text-component--ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-component--ghost {
+    color: var(--ghost-font-color);
+}

@@ -1,7 +1,16 @@
 .album-card {
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-1);
+    padding: var(--spacing-2);
     background-color: var(--tertiary-color);
     border-radius: var(--border-radius-2);
+}
+
+.album-card__image {
+    border-radius: var(--border-radius-2);
+    margin-bottom: var(--spacing-1);
+}
+
+.album-card__title {
+    margin-bottom: var(--spacing-0);
 }
