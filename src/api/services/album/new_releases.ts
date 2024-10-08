@@ -1,9 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Album } from "../../../types/album";
 import apiClient from "../../apiClient";
 
-export const getNewAlbumReleases = async () => {
+type getNewAlbumReleasesResponse = {
+    albums: {
+        items: Album[];
+    }
+}
+
+export const getNewAlbumReleases = async (): Promise<getNewAlbumReleasesResponse> => {
     try {
-        const response = await apiClient.get<any>('/browse/new-releases');
+        const response = await apiClient.get<getNewAlbumReleasesResponse>('/browse/new-releases');
         return response.data;
     } catch (error) {
         console.log(error);
