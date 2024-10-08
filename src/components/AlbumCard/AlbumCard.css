@@ -1,0 +1,7 @@
+.album-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-1);
+    background-color: var(--tertiary-color);
+    border-radius: var(--border-radius-2);
+}

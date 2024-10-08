@@ -1,14 +1,24 @@
 
-/* #region COLORS */
 :root {
+    /* #region COLORS */
     --primary-color: rgba(29,185,84,255);
     --secondary-color: rgba(33,33,33,255);
     --tertiary-color: rgba(18,18,18,255);
     --quaternary-color: rgba(83,83,83,255);
     --quinary-color: rgba(179,179,179,255);
-}
-/* #endregion */
+    /* #endregion */
 
+    /* #region SPACING */
+    --spacing-1: 0.5rem;
+    --spacing-2: 0.75rem;
+    --spacing-3: 1rem;
+    /* #endregion */
+
+    /* #region CONTAINERS */
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    /* #endregion */
+}
 
 /* #region DEFAULT */ 
 html, body {

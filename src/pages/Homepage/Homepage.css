@@ -1,0 +1,6 @@
+.homepage {
+    padding: var(--spacing-3);
+    display:grid;
+    grid-template-columns: repeat(10, calc(10% - var(--spacing-3)));
+    grid-gap: var(--spacing-3);
+}
