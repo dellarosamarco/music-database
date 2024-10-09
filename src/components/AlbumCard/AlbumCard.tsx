@@ -1,16 +1,19 @@
+import { forwardRef } from "react";
 import { Album } from "../../types/album";
-import TextComponent from "../Text/Text";
 import './AlbumCard.css';
+import TextComponent from "../Text/Text";
 
 type AlbumProps = {
     album: Album;
+    ref?: React.Ref<HTMLDivElement>;
 }
 
-const AlbumCard = ({
-    album
-}: AlbumProps) => {
+const AlbumCard = forwardRef<HTMLDivElement, AlbumProps>((
+    { 
+        album
+    }, ref) => {
     return (
-        <div className="album-card">
+        <div className="album-card" ref={ref}>
             <img className="album-card__image" src={album.images[0].url} alt={album.name} />
             <div className="album-card__title">
                 <TextComponent 
@@ -29,6 +32,6 @@ const AlbumCard = ({
             </TextComponent>
         </div>
     );
-}
+});
 
 export default AlbumCard;
