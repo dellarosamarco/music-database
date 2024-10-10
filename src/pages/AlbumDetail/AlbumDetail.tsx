@@ -4,11 +4,15 @@ import { getAlbum } from "../../api/services/album/get_album";
 import { Album } from "../../types/album";
 import './AlbumDetail.css';
 import TextComponent from "../../components/Text/Text";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store/store";
+import { setListening } from "../../store/slices/appSlice";
 
 const AlbumDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [album, setAlbum] = useState<Album | undefined>(undefined);
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         if(!id) {
@@ -47,8 +51,7 @@ const AlbumDetail = () => {
                         </div>
                         <div className="album__track-actions">
                             <button onClick={() => {
-                                const audio = new Audio(track.preview_url);
-                                audio.play();
+                                dispatch(setListening({ trackId: track.id, album: album }));
                             }}>Play</button>
                         </div>
                     </div>
