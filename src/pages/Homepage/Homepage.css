@@ -1,6 +1,22 @@
-.homepage {
+.homepage__albums {
+    --total-columns: 10;
+
     padding: var(--spacing-3);
     display:grid;
-    grid-template-columns: repeat(10, calc(10% - var(--spacing-3)));
+    grid-template-columns: repeat(var(--total-columns), calc((100% / var(--total-columns)) - var(--spacing-3)));
     grid-gap: var(--spacing-3);
 }
+
+@media screen and (max-width: 1400px) { .homepage__albums { --total-columns: 8; } }
+@media screen and (max-width: 1200px) { .homepage__albums { --total-columns: 7; } }
+@media screen and (max-width: 992px) { .homepage__albums { --total-columns: 5; } }
+@media screen and (max-width: 768px) { .homepage__albums { --total-columns: 4; } }
+@media screen and (max-width: 576px) { .homepage__albums { --total-columns: 3; } }
+
+.homepage__search-bar {
+    padding: var(--spacing-3);
+    max-width: 25%;
+}
+
+@media screen and (max-width: 1400px) { .homepage__search-bar { max-width: 35%; } }
+@media screen and (max-width: 992px) { .homepage__search-bar { max-width: 100%; } }

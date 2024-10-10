@@ -36,12 +36,18 @@
     /* #region CONTAINERS */
     --border-radius-1: 0.25rem;
     --border-radius-2: 0.5rem;
+    --border-radius-circular: 10rem;
+    /* #endregion */
+
+    /* #region ICONS */
+    --icon-size-sm: 1.25rem;
+    --icon-size-lg: 3.5rem;
     /* #endregion */
 }
 
 /* #region DEFAULT */ 
 html, body {
-    background-color: var(--secondary-color);
+    background-color: var(--tertiary-color);
     height: 100%;
     margin: 0;
 }

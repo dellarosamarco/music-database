@@ -3,25 +3,27 @@ import { fetchNewReleases, getAlbums, getLoading } from "../../store/slices/albu
 import AlbumCard from "../../components/AlbumCard/AlbumCard";
 import './Homepage.css';
 import isVisibleY from "../../utils/isVisible";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AppDispatch } from "../../store/store";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Homepage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const albums = useSelector(getAlbums);
     const loading = useSelector(getLoading);
     const albumRefs = useRef<HTMLDivElement[]>([]);
+    const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
-        dispatch(fetchNewReleases());
-    }, [dispatch]);
+        dispatch(fetchNewReleases({page: currentPage}));
+    }, [currentPage, dispatch]);
 
     const checkVisibility = () => {
         if(loading) return;
-        
+
         if(window.scrollY >= document.body.scrollHeight - document.body.offsetHeight - 25) {
             if(isVisibleY(albumRefs.current[albumRefs.current.length - 1])) {
-                dispatch(fetchNewReleases());
+                setCurrentPage(currentPage + 1);
             }
         }
     }
@@ -36,16 +38,28 @@ const Homepage = () => {
 
     return (
         <div className="homepage" onScroll={() => checkVisibility()}>
-            <button onClick={checkVisibility}>x</button>
-            {
-                albums.map((album, index) => (
-                    <AlbumCard 
-                        album={album} 
-                        key={album.id}
-                        ref={(ref: HTMLDivElement) => albumRefs.current[index] = ref}
-                    ></AlbumCard>
-                ))
-            }
+            <div className="homepage__search-bar">
+                <SearchBar
+                    results={
+                        albums.map(album => ({
+                            name: album.name,
+                            description: album.artists.map(artist => artist.name).join(', '),
+                            image: album.images[0].url
+                        }))
+                    }
+                ></SearchBar>
+            </div>
+            <div className="homepage__albums">
+                {
+                    albums.map((album, index) => (
+                        <AlbumCard 
+                            album={album} 
+                            key={album.id}
+                            ref={(ref: HTMLDivElement) => albumRefs.current[index] = ref}
+                        ></AlbumCard>
+                    ))
+                }
+            </div>
         </div>
     );
 }

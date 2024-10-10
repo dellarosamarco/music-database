@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Album } from '../../types/album';
-import { getNewAlbumReleases } from '../../api/services/album/new_releases';
-import { get } from 'http';
+import { getNewAlbumReleases, getNewAlbumReleasesParams } from '../../api/services/album/new_releases';
 
 interface AlbumState {
   albums: Album[];
@@ -15,8 +14,8 @@ const initialState: AlbumState = {
 
 export const fetchNewReleases = createAsyncThunk(
   'album/newReleases',
-  async () => {
-    const response = await getNewAlbumReleases();
+  async (params: getNewAlbumReleasesParams) => {
+    const response = await getNewAlbumReleases({page: params.page});
     return response;
   }
 );
