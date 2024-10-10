@@ -43,6 +43,12 @@
     --icon-size-sm: 1.25rem;
     --icon-size-lg: 3.5rem;
     /* #endregion */
+
+
+    /* #region LAYERS */ 
+    --search-bar-z-index: 30;
+    --search-bar-overlay-z-index: 20;
+    /* #endregion */
 }
 
 /* #region DEFAULT */ 

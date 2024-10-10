@@ -49,7 +49,11 @@ const SearchBar = ({
         <div className='search-bar-container'>
             <div className='search-bar'>
                 <img src={LensIcon} alt='search' className='search-bar__icon'/>
-                <input className='search-bar__input' onChange={(e) => onSearch(e)}/>
+                <input 
+                    className='search-bar__input' 
+                    onChange={(e) => onSearch(e)}
+                    onClick={(e) => onSearch(e)}
+                />
             </div>
             <div className={`search-bar__items ${resultsPanelOpen ? 'search-bar__items--opened' : ''}`}>
                 {
@@ -62,6 +66,10 @@ const SearchBar = ({
                     </div>
                 }
             </div>
+            <div 
+                className={`search-bar__overlay ${resultsPanelOpen ? 'search-bar__overlay--opened' : ''}`}
+                onClick={() => setResultsPanelOpen(false)}
+            ></div>
         </div>
     );
 }

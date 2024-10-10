@@ -5,6 +5,7 @@
     display:grid;
     grid-template-columns: repeat(var(--total-columns), calc((100% / var(--total-columns)) - var(--spacing-3)));
     grid-gap: var(--spacing-3);
+    justify-content: center;
 }
 
 @media screen and (max-width: 1400px) { .homepage__albums { --total-columns: 8; } }
