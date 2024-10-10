@@ -4,6 +4,11 @@
     padding: var(--spacing-2);
     background-color: var(--secondary-color);
     border-radius: var(--border-radius-2);
+    cursor: pointer;
+}
+
+.album-card:hover {
+    background-color: var(--primary-color);
 }
 
 .album-card__image {

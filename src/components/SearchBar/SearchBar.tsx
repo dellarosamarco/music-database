@@ -52,7 +52,7 @@ const SearchBar = ({
                 <input 
                     className='search-bar__input' 
                     onChange={(e) => onSearch(e)}
-                    onClick={(e) => onSearch(e)}
+                    onClick={(e) => onSearch(e as unknown as React.ChangeEvent<HTMLInputElement>)}
                 />
             </div>
             <div className={`search-bar__items ${resultsPanelOpen ? 'search-bar__items--opened' : ''}`}>
@@ -66,7 +66,9 @@ const SearchBar = ({
                     </div>
                 }
             </div>
-            <div 
+            <div
+                // L'overlay andrebbe gestito a livello di tutto l'applicativo con un componente dedicato e gestito da Redux, e non da questo componente.
+                // Ma per mancanza di tempo lo gestisco direttamente qui.
                 className={`search-bar__overlay ${resultsPanelOpen ? 'search-bar__overlay--opened' : ''}`}
                 onClick={() => setResultsPanelOpen(false)}
             ></div>

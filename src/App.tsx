@@ -1,6 +1,7 @@
-import Homepage from "./pages/Homepage/Homepage";
 import { useEffect } from "react";
 import setAccessToken from "./utils/setAccessToken";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 
 const App = () => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const App = () => {
 
   return (
     <>
-      <Homepage />
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }

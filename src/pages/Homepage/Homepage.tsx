@@ -38,16 +38,18 @@ const Homepage = () => {
 
     return (
         <div className="homepage" onScroll={() => checkVisibility()}>
-            <div className="homepage__search-bar">
-                <SearchBar
-                    results={
-                        albums.map(album => ({
-                            name: album.name,
-                            description: album.artists.map(artist => artist.name).join(', '),
-                            image: album.images[0].url
-                        }))
-                    }
-                ></SearchBar>
+            <div className="homepage__header">
+                <div className="homepage__header-search-bar">
+                    <SearchBar
+                        results={
+                            albums.map(album => ({
+                                name: album.name,
+                                description: album.artists.map(artist => artist.name).join(', '),
+                                image: album.images[0].url
+                            }))
+                        }
+                    ></SearchBar>
+                </div>
             </div>
             <div className="homepage__albums">
                 {
