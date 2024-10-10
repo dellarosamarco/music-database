@@ -6,6 +6,8 @@ import isVisibleY from "../../utils/isVisible";
 import { useEffect, useRef, useState } from "react";
 import { AppDispatch } from "../../store/store";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { useNavigate } from "react-router-dom";
+import { ALBUM_DETAIL_PATH } from "../../router/routes";
 
 const Homepage = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -13,6 +15,7 @@ const Homepage = () => {
     const loading = useSelector(getLoading);
     const albumRefs = useRef<HTMLDivElement[]>([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchNewReleases({page: currentPage}));
@@ -58,6 +61,9 @@ const Homepage = () => {
                             album={album} 
                             key={album.id}
                             ref={(ref: HTMLDivElement) => albumRefs.current[index] = ref}
+                            onClick={() => {
+                                navigate(ALBUM_DETAIL_PATH(album.id));
+                            }}
                         ></AlbumCard>
                     ))
                 }

@@ -3,14 +3,14 @@ import apiClient from "../../apiClient";
 
 const defaultLimit = 50;
 
+export type getNewAlbumReleasesParams = {
+    page?: number;
+}
+
 type getNewAlbumReleasesResponse = {
     albums: {
         items: Album[];
     }
-}
-
-export type getNewAlbumReleasesParams = {
-    page?: number;
 }
 
 export const getNewAlbumReleases = async (params: getNewAlbumReleasesParams): Promise<getNewAlbumReleasesResponse> => {

@@ -16,3 +16,7 @@
 .text-component--ghost {
     color: var(--ghost-font-color);
 }
+
+.text-component--h1 {
+    font-size: var(--fs-header-1);
+}

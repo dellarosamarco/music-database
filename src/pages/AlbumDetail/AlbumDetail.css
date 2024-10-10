@@ -1,0 +1,27 @@
+.album {
+
+}
+
+.album__header {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-4);
+    display: flex;
+    gap: var(--spacing-4);
+}
+
+.album__header-cover {
+    height: 20rem;
+    border-radius: var(--border-radius-2);
+}
+
+.album__track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-4);
+}
+
+.album__track-title {
+    display: flex;
+    gap: var(--spacing-4);
+}

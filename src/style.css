@@ -14,6 +14,7 @@
     --spacing-1: 0.5rem;
     --spacing-2: 0.75rem;
     --spacing-3: 1rem;
+    --spacing-4: 1.25rem;
     /* #endregion */
 
 
@@ -24,6 +25,7 @@
 
     /* #region FONTS SIZE */
     --fs-normal: 0.9rem;
+    --fs-header-1: 3rem;
     /* #endregion */
 
 

@@ -13,6 +13,9 @@ export type Album = {
     total_tracks: number;
     type: string;
     uri: string;
+    tracks: {
+        items: AlbumTrack[];
+    }
 }
 
 type AlbumImage = {
@@ -27,4 +30,11 @@ type AlbumArtist = {
     name: string;
     type: string;
     uri: string;
+}
+
+type AlbumTrack = {
+    id: string;
+    name: string;
+    uri: string;
+    preview_url: string;
 }

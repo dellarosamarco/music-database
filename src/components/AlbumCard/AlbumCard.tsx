@@ -6,14 +6,18 @@ import TextComponent from "../Text/Text";
 type AlbumProps = {
     album: Album;
     ref?: React.Ref<HTMLDivElement>;
+    onClick: () => void;
 }
 
 const AlbumCard = forwardRef<HTMLDivElement, AlbumProps>((
     { 
-        album
-    }, ref) => {
+        album,
+        onClick
+    }, 
+    ref
+) => {
     return (
-        <div className="album-card" ref={ref}>
+        <div className="album-card" ref={ref} onClick={onClick}>
             <img className="album-card__image" src={album.images[0].url} alt={album.name} />
             <div className="album-card__title">
                 <TextComponent 
