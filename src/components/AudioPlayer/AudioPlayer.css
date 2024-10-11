@@ -1,20 +1,65 @@
 .audio-player {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     background-color: var(--secondary-color);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-3);
+    padding: var(--spacing-4);
     box-sizing: border-box;
+}
+
+.audio-player__header {
+    display: flex;
+    width: 100%;
+    align-items: center;
 }
 
 .audio-player__info {
     display: flex;
     gap: var(--spacing-3);
+    width: calc(50% - 5rem);
 }
 
 .audio-player__info-image {
     height: 5rem;
 }
+
+.audio-player__track {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+    justify-content: center;
+}
+
+.audio-player__track-time {
+    width: 1rem;
+}
+
+/* #region Progress Bar */
+.audio-player__track-progress {
+    height: 0.4rem;
+    border-radius: var(--border-radius-circular);
+    cursor: pointer;
+    color: var(--secondary-color);
+    width: 20rem;
+}
+
+.audio-player__track-progress::-webkit-progress-bar {
+    border: 0;
+    border-radius: var(--border-radius-circular);
+    background-color: var(--tertiary-color);
+}
+
+.audio-player__track-progress::-webkit-progress-value {
+    border: 0;
+    border-radius: var(--border-radius-circular);
+    background-color: var(--primary-color);
+}
+
+.audio-player__track-progress::-moz-progress-bar {
+    border: 0;
+    border-radius: var(--border-radius-circular);
+}
+/* #endregion */

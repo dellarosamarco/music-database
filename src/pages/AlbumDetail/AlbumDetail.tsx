@@ -4,15 +4,20 @@ import { getAlbum } from "../../api/services/album/get_album";
 import { Album } from "../../types/album";
 import './AlbumDetail.css';
 import TextComponent from "../../components/Text/Text";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../store/store";
-import { setListening } from "../../store/slices/appSlice";
+import { getIsListening, getListening, setListening, setPause, setResume } from "../../store/slices/appSlice";
+import Button from "../../components/Button/Button";
+import PlayIcon from '../../assets/icons/play.svg';
+import PauseIcon from '../../assets/icons/pause.svg';
 
 const AlbumDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [album, setAlbum] = useState<Album | undefined>(undefined);
     const dispatch = useDispatch<AppDispatch>();
+    const listening = useSelector(getListening);
+    const isListening = useSelector(getIsListening);
 
     useEffect(() => {
         if(!id) {
@@ -37,9 +42,22 @@ const AlbumDetail = () => {
             <div className="album__header">
                 <img className="album__header-cover" src={album?.images[0].url} alt={album?.name} />
                 <div className="album__header-info">
-                    <TextComponent size='h1'>{album?.name}</TextComponent>
-                    <TextComponent>{album?.artists.map(artist => artist.name).join(', ')}</TextComponent>
-                    <TextComponent>{album?.release_date}</TextComponent>
+                    <div>
+                        <TextComponent size='h1'>{album?.name}</TextComponent>
+                        <TextComponent size='h3' color="ghost">{album?.artists.map(artist => artist.name).join(', ')}</TextComponent>
+                    </div>
+                    {/* <TextComponent color="ghost">{album?.release_date}</TextComponent> */}
+                    <div>
+                        <Button
+                            onClick={() => {
+                                if(!album) return;
+                                const track = album.tracks.items[0];
+                                dispatch(setListening({ trackId:track.id, album: album }));
+                            }}
+                        >
+                            <TextComponent size="h4" fontWeight="bold" color="black">Play</TextComponent>
+                        </Button>
+                    </div>
                 </div>
             </div>
             <div className="album__tracks">
@@ -50,9 +68,22 @@ const AlbumDetail = () => {
                             <TextComponent>{track.name}</TextComponent>
                         </div>
                         <div className="album__track-actions">
-                            <button onClick={() => {
-                                dispatch(setListening({ trackId: track.id, album: album }));
-                            }}>Play</button>
+                            <Button 
+                                isCircular={true}
+                                onClick={() => {
+                                    if(isListening && listening?.trackId === track.id) {
+                                        dispatch(setPause());
+                                    }
+                                    else if(!isListening && listening?.trackId === track.id) {
+                                        dispatch(setResume());
+                                    }
+                                    else {
+                                        dispatch(setListening({ trackId: track.id, album: album }));
+                                    }
+                                }}
+                            >
+                                <img src={listening?.trackId === track.id ? (isListening ? PauseIcon : PlayIcon) : PlayIcon}></img>
+                            </Button>
                         </div>
                     </div>
                 ))}

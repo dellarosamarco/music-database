@@ -1,13 +1,16 @@
-.album {
-
-}
-
 .album__header {
     background-color: var(--secondary-color);
     padding: var(--spacing-4);
     display: flex;
     gap: var(--spacing-4);
 }
+
+.album__header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 .album__header-cover {
     height: 20rem;

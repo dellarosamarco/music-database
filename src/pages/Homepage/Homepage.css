@@ -13,18 +13,6 @@
 @media screen and (max-width: 992px) { .homepage__albums { --total-columns: 5; } }
 @media screen and (max-width: 768px) { .homepage__albums { --total-columns: 4; } }
 @media screen and (max-width: 576px) { .homepage__albums { --total-columns: 3; } }
-
-.homepage__header {
-    padding: var(--spacing-3);
-    position: sticky;
-    top: 0;
-    background-color: var(--tertiary-color);
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
-}
-
-.homepage__header-search-bar {
-    max-width: 25%;
-}
-
-@media screen and (max-width: 1400px) { .homepage__header-search-bar { max-width: 35%; } }
-@media screen and (max-width: 992px) { .homepage__header-search-bar { max-width: 100%; } }
+@media screen and (max-width: 576px) { .homepage__albums { --total-columns: 3; } }
+@media screen and (max-width: 500px) { .homepage__albums { --total-columns: 2; } }
+@media screen and (max-width: 400px) { .homepage__albums { --total-columns: 1; } }

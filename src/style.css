@@ -1,11 +1,13 @@
 
 :root {
     /* #region PALETTE */
-    --primary-color: rgba(29,185,84,255);
-    --secondary-color: rgba(33,33,33,255);
-    --tertiary-color: rgba(18,18,18,255);
-    --quaternary-color: rgba(83,83,83,255);
-    --quinary-color: rgba(179,179,179,255);
+    --primary-color: rgba(29,185,84,1);
+    --secondary-color: rgba(33,33,33,1);
+    --tertiary-color: rgba(18,18,18,1);
+    --quaternary-color: rgba(83,83,83,1);
+    --quinary-color: rgba(179,179,179,1);
+
+    --primary-color-hover: rgba(29,185,84,0.8);
     /* #endregion */
 
 
@@ -15,6 +17,7 @@
     --spacing-2: 0.75rem;
     --spacing-3: 1rem;
     --spacing-4: 1.25rem;
+    --spacing-5: 1.75rem;
     /* #endregion */
 
 
@@ -26,6 +29,9 @@
     /* #region FONTS SIZE */
     --fs-normal: 0.9rem;
     --fs-header-1: 3rem;
+    --fs-header-2: 2rem;
+    --fs-header-3: 1.5rem;
+    --fs-header-4: 1.10rem;
     /* #endregion */
 
 
@@ -43,6 +49,7 @@
 
     /* #region ICONS */
     --icon-size-sm: 1.25rem;
+    --icon-size-md: 1.5rem;
     --icon-size-lg: 3.5rem;
     /* #endregion */
 

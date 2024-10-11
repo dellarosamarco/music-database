@@ -17,6 +17,22 @@
     color: var(--ghost-font-color);
 }
 
+.text-component--black {
+    color: black;
+}
+
 .text-component--h1 {
     font-size: var(--fs-header-1);
+}
+
+.text-component--h2 {
+    font-size: var(--fs-header-2);
+}
+
+.text-component--h3 {
+    font-size: var(--fs-header-3);
+}
+
+.text-component--h4 {
+    font-size: var(--fs-header-4);
 }
