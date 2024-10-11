@@ -1,3 +1,4 @@
+/* #region Audio Player */
 .audio-player {
     position: sticky;
     bottom: 0;
@@ -9,7 +10,10 @@
     padding: var(--spacing-4);
     box-sizing: border-box;
 }
+/* #endregion */
 
+
+/* #region Audio Player Header */
 .audio-player__header {
     display: flex;
     width: 100%;
@@ -25,7 +29,10 @@
 .audio-player__info-image {
     height: 5rem;
 }
+/* #endregion */
 
+
+/* #region Track */
 .audio-player__track {
     display: flex;
     align-items: center;
@@ -36,6 +43,8 @@
 .audio-player__track-time {
     width: 1rem;
 }
+/* #endregion */
+
 
 /* #region Progress Bar */
 .audio-player__track-progress {
@@ -63,3 +72,43 @@
     border-radius: var(--border-radius-circular);
 }
 /* #endregion */
+
+@media screen and (max-width: 1200px) { 
+    .audio-player__info {
+        width: 50%;
+    }
+
+    .audio-player__track-progress {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 992px) { 
+    .audio-player__info {
+        width: 100%;
+    }
+
+    .audio-player__track-progress {
+        width: 10rem;
+    }
+
+    .audio-player__header {
+        justify-content: space-between;
+        margin-right: var(--spacing-4);
+    }
+}
+
+@media screen and (max-width: 768px) { 
+    .audio-player__info {
+        width: 100%;
+    }
+
+    .audio-player__track-progress {
+        width: 10rem;
+    }
+
+    .audio-player__header {
+        justify-content: space-between;
+        margin-right: var(--spacing-4);
+    }
+}

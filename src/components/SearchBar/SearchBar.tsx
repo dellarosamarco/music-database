@@ -3,6 +3,7 @@ import LensIcon from './../../assets/icons/lens.svg';
 import { SearchBarItem } from './SearchBarItem/SearchBarItem';
 import { useState } from 'react';
 import TextComponent from '../Text/Text';
+import Loader from '../Loader/Loader';
 
 type SearchBarResult = {
     name: string;
@@ -15,17 +16,19 @@ type SearchBarProps = {
     results?: SearchBarResult[];
     maxResults?: number;
     placeholder?: string;
+    isLoading?: boolean;
+    onSearch?: (searchTerm: string) => void;
 }
 
 const SearchBar = ({
     results=[],
-    maxResults=5,
-    placeholder=''
+    placeholder='',
+    onSearch,
+    isLoading=false
 }: SearchBarProps) => {
     const [resultsPanelOpen, setResultsPanelOpen] = useState(false);
-    const [resultsFound, setResultsFound] = useState<SearchBarResult[]>([]);
 
-    const onSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const searchTerm = e.target.value.toLowerCase();
 
         if(searchTerm === '') {
@@ -33,19 +36,8 @@ const SearchBar = ({
             return;
         }
 
+        onSearch?.(searchTerm);
         setResultsPanelOpen(true);
-
-        const filteredResults = 
-            results
-            .slice(0, maxResults)
-            .filter(
-                result => (
-                    result.name.toLowerCase().includes(searchTerm) ||
-                    result.description.toLocaleLowerCase().includes(searchTerm)
-                )
-            );
-        
-        setResultsFound(filteredResults);
     }
 
     return (
@@ -56,13 +48,13 @@ const SearchBar = ({
                     placeholder={placeholder}
                     type='text'
                     className='search-bar__input' 
-                    onChange={(e) => onSearch(e)}
-                    onClick={(e) => onSearch(e as unknown as React.ChangeEvent<HTMLInputElement>)}
+                    onChange={(e) => onChange(e)}
+                    onClick={(e) => onChange(e as unknown as React.ChangeEvent<HTMLInputElement>)}
                 />
             </div>
             <div className={`search-bar__items ${resultsPanelOpen ? 'search-bar__items--opened' : ''}`}>
-                {
-                    resultsFound.length > 0 ? resultsFound.map((result, index) => (
+                {!isLoading ? (
+                    results.length > 0 ? results.map((result, index) => (
                         <SearchBarItem onClick={() => {
                             result.onClick?.();
                             setResultsPanelOpen(false);
@@ -72,7 +64,7 @@ const SearchBar = ({
                     <div className='search-bar__items--empty'>
                         <TextComponent color="ghost">No results found</TextComponent>
                     </div>
-                }
+                ) : <div className='search-bar__items--empty'><Loader></Loader></div>}
             </div>
             <div
                 // L'overlay andrebbe gestito a livello di tutto l'applicativo con un componente dedicato e gestito da Redux, e non da questo componente.

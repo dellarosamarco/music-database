@@ -18,7 +18,10 @@ apiClient.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   if(error.status === 401) {
-    setAccessToken();
+    setAccessToken().then(() => {
+      // refresh page
+      window.location.reload();
+    });
   }
   return Promise.reject(error);
 });

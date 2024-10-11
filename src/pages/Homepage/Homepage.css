@@ -13,6 +13,5 @@
 @media screen and (max-width: 992px) { .homepage__albums { --total-columns: 5; } }
 @media screen and (max-width: 768px) { .homepage__albums { --total-columns: 4; } }
 @media screen and (max-width: 576px) { .homepage__albums { --total-columns: 3; } }
-@media screen and (max-width: 576px) { .homepage__albums { --total-columns: 3; } }
 @media screen and (max-width: 500px) { .homepage__albums { --total-columns: 2; } }
 @media screen and (max-width: 400px) { .homepage__albums { --total-columns: 1; } }

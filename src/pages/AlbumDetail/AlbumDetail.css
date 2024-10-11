@@ -1,3 +1,4 @@
+/* #region Album Header */
 .album__header {
     background-color: var(--secondary-color);
     padding: var(--spacing-4);
@@ -11,12 +12,16 @@
     justify-content: space-between;
 }
 
-
 .album__header-cover {
     height: 20rem;
+    width: 20rem;
     border-radius: var(--border-radius-2);
 }
 
+/* #endregion */
+
+
+/* #region Album Track */
 .album__track {
     display: flex;
     align-items: center;
@@ -28,4 +33,22 @@
 .album__track-title {
     display: flex;
     gap: var(--spacing-4);
+}
+/* #endregion */
+
+
+@media screen and (max-width: 576px) {     
+    .album__header { 
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .album__header-info {
+        gap: var(--spacing-3)
+    }
+
+    .album__header-cover {
+        width: 100%;
+        height: auto;
+    }
 }

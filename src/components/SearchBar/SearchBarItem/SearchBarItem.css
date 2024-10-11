@@ -18,4 +18,5 @@
 
 .search-bar__result-info {
     width: 100%;
+    overflow: hidden;
 }

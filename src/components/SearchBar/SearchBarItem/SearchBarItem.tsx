@@ -18,8 +18,8 @@ export const SearchBarItem = ({
         <div className='search-bar__result' onClick={onClick}>
             <img src={image} alt='album-icon' className='search-bar__result-image'/>
             <div className='search-bar__result-info'>
-                <TextComponent>{name}</TextComponent>
-                <TextComponent>{description}</TextComponent>
+                <TextComponent overflow='ellipsis'>{name}</TextComponent>
+                <TextComponent overflow='ellipsis'>{description}</TextComponent>
             </div>
         </div>
     );
