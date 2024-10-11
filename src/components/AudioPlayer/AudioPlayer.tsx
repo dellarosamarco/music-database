@@ -19,8 +19,12 @@ const AudioPlayer = () => {
     useEffect(() => {
         if(!listening) return;
 
+        const preview_url = listening.album.tracks.items.filter(track => track.id === listening.trackId)[0].preview_url
+
+        if(!preview_url) return;
+
         audioPlayer.pause();
-        audioPlayer.src = listening.album.tracks.items.filter(track => track.id === listening.trackId)[0].preview_url;
+        audioPlayer.src = preview_url;
         audioPlayer.load();
         audioPlayer.play();
 

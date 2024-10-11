@@ -68,7 +68,7 @@ const AlbumDetail = () => {
                             <TextComponent>{track.name}</TextComponent>
                         </div>
                         <div className="album__track-actions">
-                            <Button 
+                            { track.preview_url ? <Button 
                                 isCircular={true}
                                 onClick={() => {
                                     if(isListening && listening?.trackId === track.id) {
@@ -83,7 +83,7 @@ const AlbumDetail = () => {
                                 }}
                             >
                                 <img src={listening?.trackId === track.id ? (isListening ? PauseIcon : PlayIcon) : PlayIcon}></img>
-                            </Button>
+                            </Button> : <TextComponent color="ghost">No preview available</TextComponent>}
                         </div>
                     </div>
                 ))}

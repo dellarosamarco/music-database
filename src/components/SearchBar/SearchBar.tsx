@@ -8,16 +8,19 @@ type SearchBarResult = {
     name: string;
     description: string;
     image: string;
+    onClick?: () => void;
 }
 
 type SearchBarProps = {
     results?: SearchBarResult[];
     maxResults?: number;
+    placeholder?: string;
 }
 
 const SearchBar = ({
     results=[],
-    maxResults=5
+    maxResults=5,
+    placeholder=''
 }: SearchBarProps) => {
     const [resultsPanelOpen, setResultsPanelOpen] = useState(false);
     const [resultsFound, setResultsFound] = useState<SearchBarResult[]>([]);
@@ -50,6 +53,8 @@ const SearchBar = ({
             <div className='search-bar'>
                 <img src={LensIcon} alt='search' className='search-bar__icon'/>
                 <input 
+                    placeholder={placeholder}
+                    type='text'
                     className='search-bar__input' 
                     onChange={(e) => onSearch(e)}
                     onClick={(e) => onSearch(e as unknown as React.ChangeEvent<HTMLInputElement>)}
@@ -58,7 +63,10 @@ const SearchBar = ({
             <div className={`search-bar__items ${resultsPanelOpen ? 'search-bar__items--opened' : ''}`}>
                 {
                     resultsFound.length > 0 ? resultsFound.map((result, index) => (
-                        <SearchBarItem key={index} name={result.name} description={result.description} image={result.image}></SearchBarItem>
+                        <SearchBarItem onClick={() => {
+                            result.onClick?.();
+                            setResultsPanelOpen(false);
+                        }} key={index} name={result.name} description={result.description} image={result.image}></SearchBarItem>
                     )) 
                     :
                     <div className='search-bar__items--empty'>

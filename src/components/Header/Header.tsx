@@ -16,11 +16,13 @@ const Header = () => {
             </div>
             <div className="header-search-bar">
                 <SearchBar
+                    placeholder='Search for albums'
                     results={
                         albums.map(album => ({
                             name: album.name,
                             description: album.artists.map(artist => artist.name).join(', '),
-                            image: album.images[0].url
+                            image: album.images[0].url,
+                            onClick: () => navigate(`/album/${album.id}`)
                         }))
                     }
                 ></SearchBar>

@@ -5,15 +5,17 @@ type SearchBarItemProps = {
     name: string;
     description: string;
     image: string;
+    onClick?: () => void;
 }
 
 export const SearchBarItem = ({
     name,
     description,
-    image
+    image,
+    onClick
 }: SearchBarItemProps) => {
     return (
-        <div className='search-bar__result'>
+        <div className='search-bar__result' onClick={onClick}>
             <img src={image} alt='album-icon' className='search-bar__result-image'/>
             <div className='search-bar__result-info'>
                 <TextComponent>{name}</TextComponent>

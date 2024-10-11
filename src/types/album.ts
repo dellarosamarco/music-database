@@ -36,5 +36,5 @@ type AlbumTrack = {
     id: string;
     name: string;
     uri: string;
-    preview_url: string;
+    preview_url?: string;
 }
