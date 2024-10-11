@@ -64,8 +64,8 @@ const AlbumDetail = () => {
                 {album?.tracks.items.map((track, index) => (
                     <div key={track.id} className="album__track">
                         <div className="album__track-title">
-                            <TextComponent>{(index+1).toString()}</TextComponent>
-                            <TextComponent>{track.name}</TextComponent>
+                            <TextComponent overflow="ellipsis">{(index+1).toString()}</TextComponent>
+                            <TextComponent overflow="ellipsis">{track.name}</TextComponent>
                         </div>
                         <div className="album__track-actions">
                             { track.preview_url ? <Button 
@@ -83,7 +83,7 @@ const AlbumDetail = () => {
                                 }}
                             >
                                 <img src={listening?.trackId === track.id ? (isListening ? PauseIcon : PlayIcon) : PlayIcon}></img>
-                            </Button> : <TextComponent color="ghost">No preview available</TextComponent>}
+                            </Button> : <TextComponent overflow="ellipsis" color="ghost">No preview available</TextComponent>}
                         </div>
                     </div>
                 ))}

@@ -16,8 +16,8 @@
 .header-search-bar__home {
     cursor: pointer;
     border-radius: var(--border-radius-circular);
-    height: 3rem;
-    width: 3rem;
+    min-height: 3rem;
+    min-width: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;

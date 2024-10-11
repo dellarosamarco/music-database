@@ -47,7 +47,7 @@
     --border-radius-circular: 10rem;
     /* #endregion */
 
-    
+
     /* #region ICONS */
     --icon-size-sm: 1.25rem;
     --icon-size-md: 1.5rem;
@@ -59,6 +59,19 @@
     --search-bar-z-index: 30;
     --search-bar-overlay-z-index: 20;
     /* #endregion */
+}
+
+@media screen and (max-width: 768px) { 
+    :root {
+        --fs-header-1: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) { 
+    :root {
+        --fs-header-1: 2rem;
+        --fs-header-3: 1.25rem;
+    }
 }
 
 /* #region DEFAULT */ 
