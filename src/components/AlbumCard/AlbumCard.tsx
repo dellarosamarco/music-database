@@ -17,8 +17,8 @@ const AlbumCard = forwardRef<HTMLDivElement, AlbumProps>((
     ref
 ) => {
     return (
-        <div className="album-card" ref={ref} onClick={onClick}>
-            <img className="album-card__image" src={album.images[0].url} alt={album.name} />
+        <div className="album-card" ref={ref} onClick={onClick} role="button">
+            {album.images.length > 0 && <img className="album-card__image" src={album.images[0].url} alt={album.name} />}
             <div className="album-card__title">
                 <TextComponent 
                     fontWeight="bold"

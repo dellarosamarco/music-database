@@ -1,7 +1,7 @@
 import './Loader.css';
 
 const Loader = () => {
-    return <div className='loader'></div>
+    return <div role="status" className='loader'></div>
 }
 
 export default Loader;

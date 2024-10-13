@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchBarItem Component > matches the snapshot 1`] = `
+<div>
+  <div
+    class="search-bar__result"
+  >
+    <img
+      alt="album-icon"
+      class="search-bar__result-image"
+      src="https://example.com/test-album.jpg"
+    />
+    <div
+      class="search-bar__result-info"
+    >
+      <p
+        class="text-component text-component--ellipsis"
+      >
+        Test Album
+      </p>
+      <p
+        class="text-component text-component--ellipsis"
+      >
+        Test Artist
+      </p>
+    </div>
+  </div>
+</div>
+`;

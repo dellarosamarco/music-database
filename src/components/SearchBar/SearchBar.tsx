@@ -5,7 +5,7 @@ import { useState } from 'react';
 import TextComponent from '../Text/Text';
 import Loader from '../Loader/Loader';
 
-type SearchBarResult = {
+export type SearchBarResult = {
     name: string;
     description: string;
     image: string;

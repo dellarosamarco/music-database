@@ -81,7 +81,9 @@ const AudioPlayer = () => {
                         value={currentAudioTime}
                         max={currentAudioDuration}
                         onClick={(e) => {
-                            audioPlayer.currentTime = e.nativeEvent.offsetX * currentAudioDuration / e.currentTarget.clientWidth;
+                            const point = e.nativeEvent.offsetX * currentAudioDuration / e.currentTarget.clientWidth;
+                            if(isNaN(point)) return;
+                            audioPlayer.currentTime = point;
                             audioPlayer.play();
                             if(!isListening) {
                                 dispatch(setResume());
