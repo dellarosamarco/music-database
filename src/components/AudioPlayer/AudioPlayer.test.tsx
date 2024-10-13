@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import AudioPlayer from './AudioPlayer';
 import { getIsListening, getListening, setPause } from '../../store/slices/appSlice';
 
-// Mocking the required modules
 vi.mock('react-redux', () => ({
   useSelector: vi.fn(),
   useDispatch: vi.fn(),
@@ -17,7 +16,6 @@ vi.mock('../../store/slices/appSlice', () => ({
   setResume: vi.fn(),
 }));
 
-// Mock listening state
 const mockListening = {
   album: {
     name: 'Test Album',

@@ -10,7 +10,8 @@ export type getNewAlbumReleasesParams = {
 type getNewAlbumReleasesResponse = {
     albums: {
         items: Album[];
-    }
+        total: number;
+    };
 }
 
 export const getNewAlbumReleases = async (params: getNewAlbumReleasesParams): Promise<getNewAlbumReleasesResponse> => {

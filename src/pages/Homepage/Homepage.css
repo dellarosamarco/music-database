@@ -8,6 +8,13 @@
     justify-content: center;
 }
 
+.homepage__loader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1400px) { .homepage__albums { --total-columns: 8; } }
 @media screen and (max-width: 1200px) { .homepage__albums { --total-columns: 7; } }
 @media screen and (max-width: 992px) { .homepage__albums { --total-columns: 5; } }

@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { AppDispatch } from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import { ALBUM_DETAIL_PATH } from "../../router/routes";
+import Loader from "../../components/Loader/Loader";
 
 const Homepage = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -55,6 +56,9 @@ const Homepage = () => {
                     ))
                 }
             </div>
+            {
+                loading && <div className="homepage__loader"><Loader></Loader></div>
+            }
         </div>
     );
 }

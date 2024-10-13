@@ -44,7 +44,7 @@ const albumSlice = createSlice({
       state.albums = [...state.albums, ...action.payload.albums.items];
       state.currentPage += 1;
 
-      if(action.payload.albums.items.length === 0) {
+      if(action.payload.albums.total === state.albums.length) {
         state.hasMoreAlbum = false;
       }
     });
