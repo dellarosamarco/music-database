@@ -43,6 +43,14 @@
 }
 /* #endregion */
 
+.album__loader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-4);
+}
+
 
 @media screen and (max-width: 576px) {     
     .album__header { 

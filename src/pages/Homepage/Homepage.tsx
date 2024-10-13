@@ -57,7 +57,7 @@ const Homepage = () => {
                 }
             </div>
             {
-                loading && <div className="homepage__loader"><Loader></Loader></div>
+                loading && <div className="homepage__loader"><Loader size="lg"></Loader></div>
             }
         </div>
     );
