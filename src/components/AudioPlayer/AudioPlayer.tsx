@@ -63,10 +63,11 @@ const AudioPlayer = () => {
                 <div className="audio-player__info">
                     <img className='audio-player__info-image' src={listening.album.images[0].url} alt={listening.album.name} />
                     <div className="audio-player__info-text">
-                        <TextComponent>{listening.album.name}</TextComponent>
-                        <TextComponent>{listening.album.artists.map(artist => artist.name).join(', ')}</TextComponent>
+                        <TextComponent overflow='ellipsis'>{listening.album.name}</TextComponent>
+                        <TextComponent overflow='ellipsis'>{listening.album.artists.map(artist => artist.name).join(', ')}</TextComponent>
                         <TextComponent
                             size="h3"
+                            overflow='ellipsis'
                         >
                             {listening.album.tracks.items.filter(track => track.id === listening.trackId)[0].name}
                         </TextComponent>
